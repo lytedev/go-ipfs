@@ -126,7 +126,7 @@ test_config_cmd() {
 
   test_expect_success "'ipfs config replace' with lower case privkey errors out" '
        cp "$IPFS_PATH/config" real_config &&
-       sed -e '\''s/PrivKey/privkey/'\'' -i real_config &&
+       sed -i -e '\''s/PrivKey/privkey/'\'' real_config &&
        test_expect_code 1 ipfs config replace - < real_config 2> replace_out
   '
 
