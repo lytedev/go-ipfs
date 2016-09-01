@@ -203,6 +203,13 @@
       "hash": "Qmf4ETeAWXuThBfWwonVyFqGFSgTWepUDEr1txcctvpTXS",
       "name": "go-libp2p",
       "version": "3.4.1"
+    },
+    {
+      "author": "lgierth",
+      "hash": "QmQfeKxQtBN721pekQh6Jq24adFUjnU65YdY3GNczfuG2T",
+      "name": "dir-index-html",
+      "version": "1.0.3",
+      "comment": "This one needs code updates in assets/assets.go too."
     }
   ],
   "gxVersion": "0.4.0",

@@ -1,4 +1,4 @@
-//go:generate go-bindata -pkg=assets init-doc ../vendor/dir-index-html-v1.0.0
+//go:generate go-bindata -pkg=assets -prefix=$GOPATH/src/gx/ipfs/QmQfeKxQtBN721pekQh6Jq24adFUjnU65YdY3GNczfuG2T init-doc $GOPATH/src/gx/ipfs/QmQfeKxQtBN721pekQh6Jq24adFUjnU65YdY3GNczfuG2T/dir-index-html
 //go:generate gofmt -w bindata.go
 
 package assets
@@ -12,6 +12,8 @@ import (
 	"github.com/ipfs/go-ipfs/core"
 	"github.com/ipfs/go-ipfs/core/coreunix"
 	uio "github.com/ipfs/go-ipfs/unixfs/io"
+
+	_ "gx/ipfs/QmQfeKxQtBN721pekQh6Jq24adFUjnU65YdY3GNczfuG2T/dir-index-html"
 )
 
 // initDocPaths lists the paths for the docs we want to seed during --init
@@ -30,8 +32,10 @@ func SeedInitDocs(nd *core.IpfsNode) (*key.Key, error) {
 }
 
 var initDirIndex = []string{
-	filepath.Join("..", "vendor", "dir-index-html-v1.0.0", "knownIcons.txt"),
-	filepath.Join("..", "vendor", "dir-index-html-v1.0.0", "dir-index.html"),
+	// assumes path to this file (assets.go) is:
+	// $GOPATH/src/github.com/ipfs/go-ipfs/assets/assets.go
+	filepath.Join("..", "..", "..", "..", "gx", "ipfs", "QmQfeKxQtBN721pekQh6Jq24adFUjnU65YdY3GNczfuG2T", "dir-index-html", "knownIcons.txt"),
+	filepath.Join("..", "..", "..", "..", "gx", "ipfs", "QmQfeKxQtBN721pekQh6Jq24adFUjnU65YdY3GNczfuG2T", "dir-index-html", "dir-index.html"),
 }
 
 func SeedInitDirIndex(nd *core.IpfsNode) (*key.Key, error) {
